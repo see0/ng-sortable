@@ -2,6 +2,7 @@
     <div class="page-header">
         <h3>Card blocks of different sizes.</h3>
     </div>
+    <button ng-click="lock ? lock = false : lock = true">LOL</button>
     <div id="columns" class="row">
         <div class="col-sm-6 col-xs-6" ng-repeat="column in columns">
             <div class="column">
@@ -9,7 +10,7 @@
                     <li class="card" ng-repeat="card in column.cards" as-sortable-item>
                         <div as-sortable-item-handle>
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-12"  data-no-drag="{{lock === true}}">
                                     <span class="card-title">{{card.title}}</span>
                                     <span class="card-title">{{card.details}}</span>
                                 </div>

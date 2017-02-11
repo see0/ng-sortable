@@ -334,7 +334,14 @@
          * @returns {boolean} - true if drag is not allowed.
          */
         noDrag: function (element) {
-          return element.attr('no-drag') !== undefined || element.attr('data-no-drag') !== undefined;
+          if(element.attr('no-drag') !== undefined)
+          {
+            return element.attr('no-drag') === 'true';
+          }else if( element.attr('data-no-drag') !== undefined){
+            return element.attr('data-no-drag') === 'true';
+          }else  if(element.attr('no-drag') === undefined || element.attr('data-no-drag') === undefined){
+            return false;
+          }
         },
 
         /**

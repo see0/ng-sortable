@@ -11,7 +11,9 @@ angular.module('demoApp').controller('SprintController', ['$scope', 'BoardServic
 
     //restrict move across backlogs. move only within backlog.
     accept: function (sourceItemHandleScope, destSortableScope, destItemScope) {
-      return sourceItemHandleScope.itemScope.sortableScope.$parent.$parent.backlog.$$hashKey === destSortableScope.$parent.$parent.backlog.$$hashKey;
+      return sourceItemHandleScope.itemScope.sortableScope.$parent.phase.name === 'Not started';
+      //destSortableScope.$parent.phase.name
+      //return sourceItemHandleScope.itemScope.sortableScope.$parent.$parent.backlog.$$hashKey === destSortableScope.$parent.$parent.backlog.$$hashKey;
     },
     itemMoved: function (event) {
     },

@@ -12,6 +12,13 @@ angular.module('demoApp')
         // callbacks for third party ng-sortable used to reorder the categories
         $scope.dragControlListeners = {
             //optional param
+
+            accept: function (sourceItemHandleScope, destSortableScope, destItemScope) {
+                sourceItemHandleScope;
+                return true;
+                //destSortableScope.$parent.phase.name
+                //return sourceItemHandleScope.itemScope.sortableScope.$parent.$parent.backlog.$$hashKey === destSortableScope.$parent.$parent.backlog.$$hashKey;
+            },
             containment: '#blocks'
         };
     }]);
